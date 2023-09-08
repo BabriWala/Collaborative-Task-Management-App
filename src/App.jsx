@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "./AuthContext/AuthContext"
-import Login from "./component/Login";
+import Login from "./component/Login/Login";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/router";
 
