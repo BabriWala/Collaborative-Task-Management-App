@@ -6,14 +6,10 @@ import router from "./Router/router";
 
 
 function App() {
-  const {handleGoogleLogin, handleSignOut} = useContext(AuthContext);
+  
   // console.log(handleGoogleLogin)
 
-  const googleLogin = () =>{
-    handleGoogleLogin().then(result => {
-      console.log(result)
-    })
-  }
+  
 
   const signOut = () =>{
     handleSignOut().then(()=>{

@@ -1,7 +1,23 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 /* eslint-disable react/no-unescaped-entities */
+
 const Login = () => {
+
+  const {handleGoogleLogin} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const googleLogin = () =>{
+    handleGoogleLogin().then(result => {
+      if(result.user.email){
+        navigate('/tasks')
+      }
+    })
+  }
+
+
   return (
     <div className="w-full mx-auto max-w-md  my-16 p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
       <h2 className="mb-3 text-3xl font-semibold text-center">
@@ -16,6 +32,7 @@ const Login = () => {
       </p>
       <div className="my-6 space-y-4">
         <button
+          onClick={googleLogin}
           aria-label="Login with Google"
           type="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
